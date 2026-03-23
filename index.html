@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <link rel="website icon" type="png"
+  href="img/OIP.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guia Especialista — Criar conta no LinkedIn (Passo a Passo)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#0055df; --card:#131d31; --muted:#4aa4f8; --txt:#e8eefc; --accent:hwb(150 0% 30%); --radius:14px }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto;background:linear-gradient(180deg,#0c1938 0%, #1b2c5a 100%);color:var(--txt);min-height:100vh}
+    .wrap{width:min(980px,94%);margin:28px auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    h1{font-size:20px;margin:0}
+    .card{background:linear-gradient(180deg, rgb(7, 72, 92), rgba(19, 19, 20, 0.534));border:1px solid rgb(10, 9, 9);padding:18px;border-radius:var(--radius);box-shadow:0 8px 30px rgb(23, 50, 172)}
+    ol{padding-left:18px;margin:12px 0 0}
+    li{margin:10px 0}
+    pre{background:rgba(0, 0, 0, 0.993);padding:12px;border-radius:10px;overflow:auto;border:1px solid rgba(235, 235, 235, 0.781)}
+    .actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    button{padding:8px 12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#1627b991);color:#fff;cursor:pointer;font-weight:600}
+    .secondary{background:transparent;border:1px solid rgb(84, 204, 100);color:var(--txt)}
+    .small{font-size:13px;color:var(--muted)}
+    .share-box{display:grid;grid-template-columns:1fr 150px;gap:10px;margin-top:10px}
+    input[type=text]{padding:10px;border-radius:10px;border:1px solid rgba(165, 165, 165, 0.911);background:transparent;color:var(--txt)}
+    @media (max-width:700px){.share-box{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Guia (Especialista) — Como criar conta no LinkedIn e compartilhar</h1>
+      <div class="small">Resumido, pronto para usar</div>
+    </header>
+
+    <section class="card" aria-labelledby="criar">
+      <h2 id="criar">Criar conta no LinkedIn — passos rápidos</h2>
+      <ol>
+        <li>Acesse <strong>linkedin.com</strong> ou instale o app (App Store / Google Play).</li>
+        <li>Clique em <strong>Começar agora / Cadastre-se</strong>.</li>
+        <li>Informe <strong>nome</strong>, <strong>email</strong> (ou telefone) e <strong>senha</strong>. Avance.</li>
+        <li>Confirme o código enviado por e‑mail/telefone.</li>
+        <li>Complete dados: <strong>país</strong>, <strong>cidade</strong> e <strong>área de atuação</strong>.</li>
+        <li>Envie a <strong>foto de perfil</strong> (fundo neutro). Use 400×400 px para boa qualidade.</li>
+        <li>Escreva um <strong>título</strong> curto: Ex.: <em>Desenvolvedor Front‑end | React</em>.</li>
+        <li>Adicione <strong>experiência</strong>, <strong>formação</strong> e um resumo (3–5 linhas) com objetivos.</li>
+        <li>Inclua <strong>habilidades</strong> (skills) e peça recomendações a colegas.</li>
+        <li>Personalize a URL do perfil: <em>Você → Configurações → Visibilidade → Editar URL</em>.</li>
+        <li>Revise privacidade: <em>Configurações e privacidade → Visibilidade</em>.</li>
+      </ol>
+    </section>
+
+    <section class="card" style="margin-top:14px" aria-labelledby="compartilhar">
+      <h2 id="compartilhar">Visualizar e compartilhar — passos práticos</h2>
+      <ol>
+        <li>Abra seu <strong>perfil</strong> no LinkedIn.</li>
+        <li>Clique em <strong>Mais → Compartilhar perfil → Copiar link</strong> (ou copie a URL do navegador).</li>
+        <li>Teste o link em uma aba anônima para ver como o público enxerga.</li>
+        <li>Para checar permissão pública: <em>Configurações e privacidade → Visibilidade → Visualizar como</em>.</li>
+        <li>Compartilhe nos canais: Instagram (bio), WhatsApp (status/mensagem), Facebook (post/perfil), X/Twitter (website) e e‑mail (assinatura).</li>
+      </ol>
+
+      <div class="small" style="margin-top:10px">Dica do especialista: inclua 3 palavras‑chave da sua área no título e no resumo (ex.: React, HTML, CSS) para melhorar buscas por recrutadores.</div>
+
+      <div style="margin-top:12px">
+        <label class="small">Link do seu perfil (cole aqui):</label>
+        <div class="share-box">
+          <input id="profileLink" type="text" placeholder="https://www.linkedin.com/in/seu-nome">
+          <div style="display:flex;gap:8px">
+            <button id="copyBtn">Copiar</button>
+            <button id="openBtn" class="secondary">Abrir</button>
+          </div>
+        </div>
+        <div class="actions" style="margin-top:8px">
+          <button id="whats">Gerar texto p/ WhatsApp</button>
+          <button id="insta" class="secondary">Gerar texto p/ Instagram (bio)</button>
+        </div>
+        <pre id="out" style="margin-top:10px;min-height:48px;">Resultado aparecerá aqui...</pre>
+      </div>
+    </section>
+
+    <section style="margin-top:14px" class="small">Quer o passo a passo em formato de texto curto para copiar no WhatsApp/Instagram? Use os botões acima.</section>
+  </div>
+
+  <script>
+    const profileLink = document.getElementById('profileLink');
+    const copyBtn = document.getElementById('copyBtn');
+    const openBtn = document.getElementById('openBtn');
+    const out = document.getElementById('out');
+    const whats = document.getElementById('whats');
+    const insta = document.getElementById('insta');
+
+    function normalize(v){ if(!v) return ''; v = v.trim(); if(!/^https?:\/\//i.test(v)) v = 'https://' + v; return v; }
+
+    copyBtn.addEventListener('click', async () => {
+      const url = normalize(profileLink.value);
+      if(!url){ out.textContent = 'Cole sua URL antes de copiar.'; return; }
+      try{ await navigator.clipboard.writeText(url); out.textContent = 'Link copiado para a área de transferência.'; }catch{ out.textContent = 'Não foi possível copiar automaticamente. Selecione e copie manualmente.'; }
+    });
+
+    openBtn.addEventListener('click', () => { const url = normalize(profileLink.value); if(!url){ out.textContent = 'Cole sua URL antes de abrir.'; return; } window.open(url, '_blank'); });
+
+    whats.addEventListener('click', () => {
+      const url = normalize(profileLink.value) || 'https://www.linkedin.com/in/seu-nome';
+      out.textContent = `Olá! Conheça meu LinkedIn: ${url}\n\nSou Desenvolvedor Front‑end (React). Vamos conectar?`;
+    });
+
+    insta.addEventListener('click', () => {
+      const url = normalize(profileLink.value) || 'https://www.linkedin.com/in/seu-nome';
+      out.textContent = `🔗 Meu LinkedIn:\n${url}\n\nPerfil profissional e portfólio.`;
+    });
+
+    // preenche exemplo
+    profileLink.value = 'https://www.linkedin.com/in/seu-nome';
+  </script>
+</body>
+</html>
