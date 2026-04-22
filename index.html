@@ -95,23 +95,4 @@
     copyBtn.addEventListener('click', async () => {
       const url = normalize(profileLink.value);
       if(!url){ out.textContent = 'Cole sua URL antes de copiar.'; return; }
-      try{ await navigator.clipboard.writeText(url); out.textContent = 'Link copiado para a área de transferência.'; }catch{ out.textContent = 'Não foi possível copiar automaticamente. Selecione e copie manualmente.'; }
-    });
-
-    openBtn.addEventListener('click', () => { const url = normalize(profileLink.value); if(!url){ out.textContent = 'Cole sua URL antes de abrir.'; return; } window.open(url, '_blank'); });
-
-    whats.addEventListener('click', () => {
-      const url = normalize(profileLink.value) || 'https://www.linkedin.com/in/seu-nome';
-      out.textContent = `Olá! Conheça meu LinkedIn: ${url}\n\nSou Desenvolvedor Front‑end (React). Vamos conectar?`;
-    });
-
-    insta.addEventListener('click', () => {
-      const url = normalize(profileLink.value) || 'https://www.linkedin.com/in/seu-nome';
-      out.textContent = `🔗 Meu LinkedIn:\n${url}\n\nPerfil profissional e portfólio.`;
-    });
-
-    // preenche exemplo
-    profileLink.value = 'https://www.linkedin.com/in/seu-nome';
-  </script>
-</body>
-</html>
+      try{ await navigator.clipboard.writeText(url); out.textContent 
